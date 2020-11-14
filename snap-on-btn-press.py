@@ -1,6 +1,8 @@
+import time
 import RPi.GPIO as GPIO
 from picamera import PiCamera
 from time import sleep
+
 
 def setup_gpio():
     GPIO.setwarnings(False)  # Ignore warning for now
@@ -34,5 +36,6 @@ if __name__ == '__main__':
     while True:
         if GPIO.input(10) == GPIO.HIGH:
             print("Shutter button was pressed, saving photo...")
-            camera.capture('/home/pi/Pictures/image.jpg')
-            sleep(5)
+            filename = "image_" + str(int(time.time())) + ".jpg"
+            camera.capture("/home/pi/Pictures/" + filename)
+            sleep(1)
