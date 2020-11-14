@@ -1,12 +1,5 @@
 import time
-import RPi.GPIO as GPIO
 from picamera import PiCamera
-
-
-def setup_gpio():
-    GPIO.setwarnings(False) # Ignore warning for now
-    GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
-    GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # Set pin 10 to be an input pin and set initial value to be pulled low (off)
 
 
 def setup_camera(the_camera):
@@ -28,7 +21,6 @@ def setup_camera(the_camera):
 
 
 if __name__ == '__main__':
-    setup_gpio()
     the_camera = PiCamera()
     setup_camera(the_camera)
     filename = "/home/pi/Pictures/image_" + str(int(time.time())) + ".jpg"
