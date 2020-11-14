@@ -16,7 +16,7 @@ def setup_camera(the_camera):
     the_camera.hflip = False
     the_camera.vflip = False
     the_camera.crop = (0.0, 0.0, 1.0, 1.0)
-    the_camera.resolution = (2000, 1500)
+    the_camera.resolution = (4056, 3040)
     # you may need to increase gpu_mem in /boot/config.txt to achieve full resolution with the Camera Module v2.
 
 
