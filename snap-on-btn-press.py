@@ -4,6 +4,9 @@ import tkinter as tk
 from picamera import PiCamera
 
 
+the_camera = PiCamera()
+
+
 def setup_camera(the_camera):
     the_camera.brightness = 50
     the_camera.sharpness = 0
@@ -18,7 +21,7 @@ def setup_camera(the_camera):
     the_camera.hflip = False
     the_camera.vflip = False
     the_camera.crop = (0.0, 0.0, 1.0, 1.0)
-    the_camera.resolution = (4056, 3040)
+    the_camera.resolution = (640, 480)
     # you may need to increase gpu_mem in /boot/config.txt to achieve full resolution with the Camera Module v2.
 
 
@@ -35,15 +38,19 @@ def capture_after_15_secs():
 
 
 def capture():
+    the_camera.stop_preview()
+    the_camera.resolution = (4056, 3040)
     print("Taking picture...")
-    the_camera = PiCamera()
-    setup_camera(the_camera)
     filename = "/home/pi/Pictures/image_" + str(int(time.time())) + ".jpg"
     the_camera.capture(filename)
     print("Saved image as " + filename)
+    the_camera.resolution = (640, 480)
+    the_camera.start_preview()
 
 
 if __name__ == '__main__':
+    setup_camera(the_camera)
+    the_camera.start_preview()
     root = tk.Tk()
     frame = tk.Frame(root)
     frame.pack()
