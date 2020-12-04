@@ -29,6 +29,16 @@ def setup_camera(the_camera):
     # you may need to increase gpu_mem in /boot/config.txt to achieve full resolution with the Camera Module v2.
 
 
+def start_preview(the_camera):
+    the_camera.resolution = (400, 300)
+    # Set up the preview. Here we're using the return value of start_preview
+    # but you can specify these values as arguments to start_preview too
+    preview = the_camera.start_preview()
+    preview.fullscreen = False
+    preview.window = (200, 50, 400, 300)
+    preview.alpha = 255 
+
+
 def capture_after_10_secs():
     print("Will take a picture after 10 seconds")
     start_time = threading.Timer(10, capture)
@@ -48,52 +58,28 @@ def capture():
     filename = base_filename + str(int(time.time())) + ".jpg"
     the_camera.capture(filename)
     print("Saved image as " + filename)
-    the_camera.resolution = (640, 480)
-    the_camera.start_preview()
-
-
-def capture_hdr():
-    print("Taking HDR picture...")
-    the_camera.stop_preview()
-    the_camera.resolution = (4056, 3040)
-    the_camera.exposure_compensation = -12
-    filename = base_filename + "hdr_1_" + str(int(time.time())) + ".jpg"
-    the_camera.capture(filename)
-    print("Saved image as " + filename)
-    the_camera.exposure_compensation = 0
-    filename = base_filename + "hdr_2_" + str(int(time.time())) + ".jpg"
-    the_camera.capture(filename)
-    print("Saved image as " + filename)
-    the_camera.exposure_compensation = 12
-    filename = base_filename + "hdr_3_" + str(int(time.time())) + ".jpg"
-    the_camera.capture(filename)
-    print("Saved image as " + filename)
-    the_camera.exposure_compensation = 0
-    the_camera.resolution = (640, 480)
-    the_camera.start_preview()
+    start_preview(the_camera)
 
 
 if __name__ == '__main__':
     setup_camera(the_camera)
-    the_camera.start_preview()
     root = tk.Tk()
     frame = tk.Frame(root)
     frame.pack()
-    capture_btn = tk.Button(frame, text="Capture", height=10, width=30, command=capture)
+    capture_btn = tk.Button(frame, text="Capture", height=10, width=20, command=capture)
     capture_btn.pack(side=tk.TOP)
 
-    capture_hdr_btn = tk.Button(frame, text="Capture HDR", height=10, width=30, command=capture_hdr)
-    capture_hdr_btn.pack(side=tk.TOP)
-
-    capture_after_10_secs_btn = tk.Button(frame, text="Capture after 10 secs", height=10, width=30,
+    capture_after_10_secs_btn = tk.Button(frame, text="Capture after 10 secs", height=10, width=20,
                                           command=capture_after_10_secs)
     capture_after_10_secs_btn.pack(side=tk.TOP)
 
-    capture_after_15_secs_btn = tk.Button(frame, text="Capture after 15 secs", height=10, width=30,
+    capture_after_15_secs_btn = tk.Button(frame, text="Capture after 15 secs", height=10, width=20,
                                           command=capture_after_15_secs)
     capture_after_15_secs_btn.pack(side=tk.TOP)
 
-    quit_btn = tk.Button(frame, text="QUIT", fg="red", height=10, width=30, command=quit)
+    quit_btn = tk.Button(frame, text="QUIT", fg="red", height=10, width=20, command=quit)
     quit_btn.pack(side=tk.BOTTOM)
+    
+    start_preview(the_camera)
 
     root.mainloop()
