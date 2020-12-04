@@ -30,12 +30,12 @@ def setup_camera(the_camera):
 
 
 def start_preview(the_camera):
-    the_camera.resolution = (400, 300)
+    the_camera.resolution = (750, 280)
     # Set up the preview. Here we're using the return value of start_preview
     # but you can specify these values as arguments to start_preview too
     preview = the_camera.start_preview()
     preview.fullscreen = False
-    preview.window = (200, 50, 400, 300)
+    preview.window = (0, 180, 750, 280)
     preview.alpha = 255 
 
 
@@ -64,21 +64,22 @@ def capture():
 if __name__ == '__main__':
     setup_camera(the_camera)
     root = tk.Tk()
+    root.geometry("750x100+0+0")
     frame = tk.Frame(root)
     frame.pack()
-    capture_btn = tk.Button(frame, text="Capture", height=10, width=20, command=capture)
-    capture_btn.pack(side=tk.TOP)
+    capture_btn = tk.Button(frame, text="Capture", height=5, width=20, command=capture)
+    capture_btn.pack(side=tk.LEFT)
 
-    capture_after_10_secs_btn = tk.Button(frame, text="Capture after 10 secs", height=10, width=20,
+    capture_after_10_secs_btn = tk.Button(frame, text="Capture after 10 secs", height=5, width=20,
                                           command=capture_after_10_secs)
-    capture_after_10_secs_btn.pack(side=tk.TOP)
+    capture_after_10_secs_btn.pack(side=tk.LEFT)
 
-    capture_after_15_secs_btn = tk.Button(frame, text="Capture after 15 secs", height=10, width=20,
+    capture_after_15_secs_btn = tk.Button(frame, text="Capture after 15 secs", height=5, width=20,
                                           command=capture_after_15_secs)
-    capture_after_15_secs_btn.pack(side=tk.TOP)
+    capture_after_15_secs_btn.pack(side=tk.LEFT)
 
-    quit_btn = tk.Button(frame, text="QUIT", fg="red", height=10, width=20, command=quit)
-    quit_btn.pack(side=tk.BOTTOM)
+    quit_btn = tk.Button(frame, text="QUIT", fg="red", height=5, width=20, command=quit)
+    quit_btn.pack(side=tk.LEFT)
     
     start_preview(the_camera)
 
