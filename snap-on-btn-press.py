@@ -18,7 +18,7 @@ def setup_camera(the_camera):
     the_camera.exposure_mode = 'auto'
     the_camera.meter_mode = 'average'
     the_camera.awb_mode = 'auto'
-    the_camera.rotation = 0
+    the_camera.rotation = 270
     the_camera.hflip = False
     the_camera.vflip = False
     the_camera.crop = (0.0, 0.0, 1.0, 1.0)
