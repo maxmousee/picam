@@ -30,12 +30,12 @@ def setup_camera(the_camera):
 
 
 def start_preview(the_camera):
-    the_camera.resolution = (750, 280)
+    the_camera.resolution = (500, 280)
     # Set up the preview. Here we're using the return value of start_preview
     # but you can specify these values as arguments to start_preview too
     preview = the_camera.start_preview()
     preview.fullscreen = False
-    preview.window = (0, 180, 750, 280)
+    preview.window = (0, 180, 500, 280)
     preview.alpha = 255 
 
 
