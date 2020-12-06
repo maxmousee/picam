@@ -65,3 +65,6 @@ Turn off your Raspberry Pi and disconnect it from the power supply, plug in your
 
 ###Attention: the camera module flat cable is FRAGILE, be very careful and gentle when connecting or disconnecting it
 
+//TODO how to install camera software, increase GPU memory and create the shortcut
+//TODO how to install touchscreen module
+//TODO how to assembly
