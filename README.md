@@ -106,3 +106,9 @@ You can do what I did and use a plastic camera, remove the insides and zip tie t
 Alternatively you can buy a specific Raspberry Pi camera case or 3D print your own case.
 
 After you fit everything into the case, it's ready to use. Plug a USB cable into the Pi and into a powerbank and start taking pictures.
+
+## Where are the photos I've taken?
+
+Your photos will be saved to your Pictures folder as JPGs... /home/pi/Pictures
+
+From there, you can upload them to Google Photos, OneDrive using the web browse :) 
