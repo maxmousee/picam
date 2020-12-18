@@ -89,6 +89,20 @@ This should not be needed for the Raspberry PI 4, but for older models it is.
 
 You can also change it in your Raspberry Pi OS settings if you are not comfortable with the Terminal.
 
-//TODO how to install touchscreen module
+## How to install the touchscreen module
 
-//TODO how to assembly
+If everything goes well, and the camera application runs, you can now assemble the touchscreen module and install the driver.
+
+To do that, shut down your Raspberry Pi, disconnect the power supply and install the HyperPixel 4.0 drivers.
+
+There's a very good guide on how to do that here https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-hyperpixel-4
+
+## Time to build everything
+
+After every part is working, you can now put everything into the case and here it will probably be very different from what I did.
+
+You can do what I did and use a plastic camera, remove the insides and zip tie the Raspberry Pi, lens and touch module to it.
+
+Alternatively you can buy a specific Raspberry Pi camera case or 3D print your own case.
+
+After you fit everything into the case, it's ready to use. Plug a USB cable into the Pi and into a powerbank and start taking pictures.
