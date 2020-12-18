@@ -65,7 +65,29 @@ Turn off your Raspberry Pi and disconnect it from the power supply, plug in your
 
 ###Attention: the camera module flat cable is FRAGILE, be very careful and gentle when connecting or disconnecting it
 
-//TODO how to install camera software, increase GPU memory and create the shortcut
+## How to install the camera software
+
+In order to take photos, you will need to install the camera software.
+
+To download the Application, run "git clone https://github.com/maxmousee/picam.git" on your Terminal.
+
+You can create a shortcut to the Application on Raspberry Pi OS.
+
+To do that, click on the Raspberry Pi OS menu, then Preferences and Main Menu Editor
+
+Then click "New Item"
+
+Create a name, you can use "Camera" and for the command use "python3 path where snap-on-btn-press.py is"...
+
+For example, "python3 /home/pi/picam/snap-on-btn-press.py" is probably the default location.
+
+In case your camera application is crashing due to not enough memory, increase the GPU memory to 256Mb using this guide:
+
+https://www.raspberrypi.org/documentation/configuration/config-txt/memory.md
+
+This should not be needed for the Raspberry PI 4, but for older models it is.
+
+You can also change it in your Raspberry Pi OS settings if you are not comfortable with the Terminal.
 
 //TODO how to install touchscreen module
 
