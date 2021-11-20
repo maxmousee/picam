@@ -22,7 +22,7 @@ def setup_camera(the_camera):
     the_camera.hflip = False
     the_camera.vflip = False
     the_camera.crop = (0.0, 0.0, 1.0, 1.0)
-    the_camera.resolution = (640, 480)
+    the_camera.resolution = (362, 272)
     the_camera.image_denoise = False
     the_camera.exif_tags['IFD0.Copyright'] = 'Copyright (c) 2020 NFS Industries'
     the_camera.exif_tags['IFD0.Model'] = 'NatanCam Model 1'
@@ -30,12 +30,12 @@ def setup_camera(the_camera):
 
 
 def start_preview(the_camera):
-    the_camera.resolution = (500, 280)
+    the_camera.resolution = (362, 272)
     # Set up the preview. Here we're using the return value of start_preview
     # but you can specify these values as arguments to start_preview too
     preview = the_camera.start_preview()
     preview.fullscreen = False
-    preview.window = (0, 180, 500, 280)
+    preview.window = (0, 180, 362, 272)
     preview.alpha = 255 
 
 
